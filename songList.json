@@ -1,0 +1,62 @@
+[
+    {
+        "songTitle": "Mr. Brightside",
+        "artists": ["The Killers"],
+        "genres": ["Rock"],
+        "year": "2003"
+    },
+    {
+        "songTitle": "What You Know",
+        "artists": ["Two Door Cinema Club"],
+        "genres": ["Alternative", "Indie"],
+        "year": "2010"
+    },
+    {
+        "songTitle": "Blinding Lights",
+        "artists": ["The Weeknd"],
+        "genres": ["R&B", "Soul", "Synthwave"],
+        "year": "2021"
+    },
+    {
+        "songTitle": "Best Part",
+        "artists": ["Daniel Caesar", "H.E.R"],
+        "genres": ["R&B", "Soul"],
+        "year": "2017"
+    },
+    {
+        "songTitle": "Hey There Delilah",
+        "artists": ["Plain White Tees"],
+        "genres": ["Alternative"],
+        "year": "2006"
+    },
+    {
+        "songTitle": "Wagon Wheel",
+        "artists": ["Darius Rucker"],
+        "genres": ["Country"],
+        "year": "2013"
+    },
+    {
+        "songTitle": "Big Sur",
+        "artists": ["The Thrills"],
+        "genres": ["Rock"],
+        "year": "2003"
+    },
+    {
+        "songTitle": "Lancaster Nights",
+        "artists": ["Charlie Burg"],
+        "genres": ["Alternative", "Indie"],
+        "year": "2020"
+    },
+    {
+        "songTitle": "WORTH SAVING",
+        "artists": ["Jessie Reyez"],
+        "genres": ["R&B", "Soul"],
+        "year": "2020"
+    },
+    {
+        "songTitle": "Ribs",
+        "artists": ["Lorde"],
+        "genres": ["Electropop", "Pop"],
+        "year": "2013"
+    }
+]
