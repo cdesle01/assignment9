@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Song List</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" 
+    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" 
+    crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    
+    <script language = "javascript">
+        
+        //loads the JSON file
+        $.get("https://cdesle01.github.io/assignment9/songList.json", 
+        function(data)
+        {
+            //transforms the data into a printable format
+            string = JSON.stringify(data);
+            string += "<br/><br/>";
+            document.getElementById("rawData").innerHTML = string;
+            
+            toPrint = '';
+            //function acts on each subset of data within the JSON file
+            data.forEach(function(song)
+            {
+                toPrint += song.songTitle + "<br/>By: " 
+                + getArtists(song.artists) + "<br/>Genre: " + 
+                getGenres(song.genres) + "<br/>Year Released: "
+                + song.year + "<br/><br/>";
+                
+            })
+            document.getElementById("songs").innerHTML = toPrint;
+            
+        })
+        
+        //gets and formats the authors of the song correcty 
+        function getArtists(list)
+        {
+            artists = '';
+            len = list.length;
+            //goes through the artist array
+            for (i = 0; i<len-1; i++)
+            {
+                artists += list[i] + ", ";
+            }
+            artists += list[len-1];
+            return artists;
+        }
+        
+        //gets and formats the genres of the song correctly 
+        function getGenres(list)
+        {
+            genres = '';
+            len = list.length;
+            //goes through the genre array 
+            for (i = 0; i<len-1; i++)
+            {
+                genres += list[i] + ", ";
+            }
+            genres += list[len-1];
+            return genres;
+        }
+        
+        //searches for songs with the selected genre 
+        function filter()
+        {
+            //gets the genre selected 
+            genre = document.getElementsByName("genre")[0].value;
+            $.get("https://cdesle01.github.io/assignment9/songList.json", 
+            function(data)
+            {
+                filter = '';
+                data.forEach(function(song)
+                {
+                    //searches through the genre array
+                    for (i=0; i<song.genres.length; i++)
+                    {
+                        //determines if the genre matches the selected genre 
+                        if (song.genres[i] == genre)
+                        {
+                            filter += song.songTitle + "<br/>By: " 
+                            + getArtists(song.artists) + "<br/>Genre: " + 
+                            getGenres(song.genres) + "<br/>Year Released: "
+                            + song.year + "<br/><br/>";
+                            document.getElementById("filter").innerHTML = filter;
+                        }
+                    }
+                    
+                })
+            })
+        }
+        
+        
+        
+        
+        
+    </script>
+    
+    <!-- formats the page correctly -->
+    <div id="1"><strong>Part Two</strong><br></div>
+    <div id="rawData"></div>
+    <div id="2"><strong>Part Three</strong><br></div>
+    <div id="songs"></div>
+    <div id="3"><strong>Part Four</strong><br></div>
+    
+    <!-- creates the form to select the genre filter -->
+    <form>
+        <select name='genre' size='1'>
+            <option> Rock </option>
+            <option> Alternative </option>
+            <option> Indie </option>
+            <option> R&B </option>
+            <option> Soul </option>
+            <option> Synthwave </option>
+            <option> Country </option>
+            <option> Pop </option>
+            <option> Electropop </option>
+        </select>
+        <input type="button" value = "Filter" onClick = "return filter()">
+    </form>
+    
+    <div id="filter"></div>
+    
+    
+</body>
+</html>
